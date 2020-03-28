@@ -5,6 +5,8 @@
 以下OpenSSL的genrsa<sup>[genrsa](#genrsa)</sup>命令生成一个2048 bit的公钥私
 钥对，输出到文件server.key里<sup>[gist](#gist)</sup>：
 
+> 这里的server.key就是rsa私钥
+
 ```
 openssl genrsa -out server.key 2048
 ```
@@ -24,6 +26,11 @@ yKTM+eoxBvptGrkEixhljqHSuE+ucTh3VqYQsgO6+8Wbh1docbFUKzLKHrferJBH
 虽说文件头尾都标注着`RSA PRIVATE KEY`，但实际上这个文件里既包括公钥也
 包括私钥<sup>[genrsa](#genrsa)</sup>。
 
+基于私钥生成公钥
+
+```
+openssl rsa -in rsa.private -out rsa.public -pubout -outform PEM
+```
 
 ## 生成身份证申请
 
